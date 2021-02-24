@@ -28,12 +28,15 @@ function todos(state = [], action) {
 
 //step 2-1 comnbine all reducers
 const rootReducer = combineReducers({ counter, todos });
+//es6 object 新寫法
 
 //step3 由rootReducer建立store
 const store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
+//step4 最外層用Provider包起來
 
 ReactDOM.render(
   <React.StrictMode>

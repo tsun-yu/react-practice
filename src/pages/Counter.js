@@ -19,4 +19,5 @@ const mapStateToProps = (store) => {
   return { total: store.counter };
 };
 const mapDispatchToProps = null;
+
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
