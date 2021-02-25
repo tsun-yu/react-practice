@@ -4,31 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-//step1 import createStore, combineReducers API
-import { createStore, combineReducers } from "redux";
+//step1 import createStoreAPI
+import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-//step2 寫出reducer
-//action = {type:"ADD_VALUE",value:1}
-//action = {type:"MINUS_VALUE",value:1}
-function counter(state = 99, action) {
-  switch (action.type) {
-    case "ADD_VALUE":
-      return state + action.value;
-    case "MINUS_VALUE":
-      return state - action.value;
-    default:
-      return state;
-  }
-}
+//step2 reducer
 
-function todos(state = [], action) {
-  return state;
-}
-
-//step 2-1 comnbine all reducers
-const rootReducer = combineReducers({ counter, todos });
-//es6 object 新寫法
+import { rootReducer } from "./reducers";
 
 //step3 由rootReducer建立store
 const store = createStore(
