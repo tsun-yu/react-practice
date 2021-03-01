@@ -5,7 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 //step1 import createStoreAPI
-import { createStore } from "redux";
+// import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
+//middleware
+import thunk from "redux-thunk";
+
+//綁定react&redux用的最上層元件
 import { Provider } from "react-redux";
 
 //step2 reducer
@@ -13,9 +18,16 @@ import { Provider } from "react-redux";
 import { rootReducer } from "./reducers";
 
 //step3 由rootReducer建立store
+// const store = createStore(
+//   rootReducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
+
+//建立store時要加入middleware
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  /* preloadedState, */ composeEnhancers(applyMiddleware(thunk))
 );
 
 //step4 最外層用Provider包起來
