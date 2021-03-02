@@ -8,20 +8,22 @@ export const addValue = (value) => {
 
 export const addValueAsync = (value) => {
   return async function updateDataToServer(dispatch, getState) {
-    const url = "http://localhost:5555/counter";
+    const newTotal = { total: getState().counter + value };
+    const url = "http://localhost:5555/counter/1";
     const request = new Request(url, {
       method: "PUT",
-      body: JSON.stringify(),
+      body: JSON.stringify(newTotal),
       headers: new Headers({
         Accept: "application/json",
         "Content-Type": "application/json",
       }),
     });
-    const response = await fetch(request);
-    const data = await response.json();
-    // console.log("data", data.total);
-    console.log("delay initValueAsync");
-    dispatch(initValue(data[0].total));
+    try {
+      const response = await fetch(request);
+      const data = await response.json();
+      // console.log(data);
+      dispatch(addValue(value));
+    } catch (error) {}
   };
 };
 

@@ -32,6 +32,7 @@ function Counter(props) {
     <>
       <h1>{props.total}</h1>
       <button onClick={() => props.addValue(1)}>+1</button>
+      <button onClick={() => props.addValueAsync(1)}>+1(async)</button>
 
       <button onClick={() => props.addValueAsync(1)}>+2(2secs)</button>
 
