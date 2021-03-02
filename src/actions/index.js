@@ -7,10 +7,21 @@ export const addValue = (value) => {
 };
 
 export const addValueAsync = (value) => {
-  return (dispatch) => {
-    setTimeout(() => {
-      dispatch(addValue(value));
-    }, 2000);
+  return async function updateDataToServer(dispatch, getState) {
+    const url = "http://localhost:5555/counter";
+    const request = new Request(url, {
+      method: "PUT",
+      body: JSON.stringify(),
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+    });
+    const response = await fetch(request);
+    const data = await response.json();
+    // console.log("data", data.total);
+    console.log("delay initValueAsync");
+    dispatch(initValue(data[0].total));
   };
 };
 
