@@ -1,4 +1,10 @@
-import { ADD_VALUE, INIT_VALUE, MINUS_VALUE } from "./actionTypes";
+import {
+  ADD_VALUE,
+  INIT_VALUE,
+  MINUS_VALUE,
+  LOG_IN,
+  LOG_OUT,
+} from "./actionTypes";
 
 //action creator 動作建立器
 
@@ -56,4 +62,12 @@ export const initValueAsync = () => {
     console.log("delay initValueAsync");
     dispatch(initValue(data[0].total));
   };
+};
+
+//isAuth
+export const logIn = () => {
+  return { type: LOG_IN };
+};
+export const logOut = () => {
+  return { type: LOG_OUT };
 };
