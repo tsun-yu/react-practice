@@ -7,7 +7,7 @@ function Login(props) {
   return (
     <>
       <Breadcrumb />
-      <h1>{props.log ? "已登入" : "未登入"}</h1>
+      <h1>{props.isAuth ? "已登入" : "未登入"}</h1>
       <button
         className="btn btn-primary"
         onClick={() => {
@@ -23,7 +23,7 @@ function Login(props) {
   );
 }
 const mapStateToProps = (store) => {
-  return { log: store.login };
+  return { isAuth: store.isAuth };
 };
 
 export default connect(

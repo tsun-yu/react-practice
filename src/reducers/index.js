@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import counter from "./counter";
-import login from "./login";
+import isAuth from "./isAuth";
 
 //comnbine all reducers
-export const rootReducer = combineReducers({ counter, login });
+export const rootReducer = combineReducers({ counter, isAuth });
 //es6 object 新寫法

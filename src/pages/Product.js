@@ -1,11 +1,14 @@
 import React from "react";
 // import { withRouter } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import Breadcrumb from "./Breadcrumb";
+import { connect } from "react-redux";
 
 function Product(props) {
   let { id } = useParams();
   console.log(props);
+
+  if (props.isAuth === false) return <Redirect to="/register" />;
   return (
     <>
       <h1>Product</h1>
@@ -16,5 +19,9 @@ function Product(props) {
   );
 }
 
+const mapStateToProps = (store) => {
+  return { isAuth: store.isAuth };
+};
+
 // export default withRouter(Product);
-export default Product;
+export default connect(mapStateToProps, {})(Product);

@@ -21,6 +21,9 @@ function Breadcrumb(props) {
     case "/login":
       path = "登入";
       break;
+    case "/register":
+      path = "註冊";
+      break;
     default:
       path = "";
       break;

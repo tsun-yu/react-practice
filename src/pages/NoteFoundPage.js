@@ -8,6 +8,7 @@ function NoteFoundPage(props) {
     <>
       <h1>404頁面不存在</h1>
       <button
+        className="btn btn-primary"
         // onClick={() => {
         //   props.history.push("/");
         // }}
@@ -19,6 +20,7 @@ function NoteFoundPage(props) {
       </button>
       <hr />
       <button
+        className="btn btn-primary"
         // onClick={() => {
         //   props.history.goBack();
         // }}

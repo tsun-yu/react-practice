@@ -7,7 +7,7 @@ function Home(props) {
   return (
     <>
       <h1>HOME</h1>
-      <h2>登入狀態：{props.log ? "已登入" : "未登入"}</h2>
+      <h2>登入狀態：{props.isAuth ? "已登入" : "未登入"}</h2>
       <Link to="/counter">Counter</Link>
       <br />
       <Link to="/calender">Calender</Link>
@@ -19,6 +19,6 @@ function Home(props) {
   );
 }
 const mapStateToProps = (store) => {
-  return { log: store.login };
+  return { isAuth: store.isAuth };
 };
 export default withRouter(connect(mapStateToProps, {})(Home));
