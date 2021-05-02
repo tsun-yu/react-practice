@@ -10,6 +10,9 @@ import MyNavbar from "./component/MyNavbar";
 import ScrollToTop from "./component/ScrollToTop";
 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import MyFooter from "./component/MyFooter";
+import MainContent from "./component/MainContent";
+import UseRefTest from "./component/UseRefTest";
 
 function App() {
   // return <Counter />;
@@ -18,30 +21,36 @@ function App() {
       <>
         <MyNavbar />
         <ScrollToTop>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/counter">
-              <CounterPage />
-            </Route>
-            <Route path="/calender">
-              <Calender />
-            </Route>
-            <Route path="/product/:id?">
-              <Product />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="*">
-              <NoteFoundPage />
-            </Route>
-          </Switch>
+          <MainContent>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/counter">
+                <CounterPage />
+              </Route>
+              <Route path="/calender">
+                <Calender />
+              </Route>
+              <Route path="/product/:id?">
+                <Product />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/register">
+                <Register />
+              </Route>
+              <Route path="/test">
+                <UseRefTest />
+              </Route>
+              <Route path="*">
+                <NoteFoundPage />
+              </Route>
+            </Switch>
+          </MainContent>
         </ScrollToTop>
+        <MyFooter />
       </>
     </Router>
   );
