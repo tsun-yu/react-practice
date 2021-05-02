@@ -1,4 +1,3 @@
-import "./App.css";
 import CounterPage from "./pages/CounterPage";
 import Calender from "./pages/Calender";
 import Product from "./pages/Product";
@@ -13,43 +12,46 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import MyFooter from "./component/MyFooter";
 import MainContent from "./component/MainContent";
 import UseRefTest from "./component/UseRefTest";
+import { useState } from "react";
+import AuthProvider from "./component/AuthProvider";
 
 function App() {
-  // return <Counter />;
   return (
     <Router>
       <>
-        <MyNavbar />
-        <ScrollToTop>
-          <MainContent>
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/counter">
-                <CounterPage />
-              </Route>
-              <Route path="/calender">
-                <Calender />
-              </Route>
-              <Route path="/product/:id?">
-                <Product />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="/test">
-                <UseRefTest />
-              </Route>
-              <Route path="*">
-                <NoteFoundPage />
-              </Route>
-            </Switch>
-          </MainContent>
-        </ScrollToTop>
+        <AuthProvider>
+          <MyNavbar />
+          <ScrollToTop>
+            <MainContent>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/counter">
+                  <CounterPage />
+                </Route>
+                <Route path="/calender">
+                  <Calender />
+                </Route>
+                <Route path="/product/:id?">
+                  <Product />
+                </Route>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/register">
+                  <Register />
+                </Route>
+                <Route path="/test">
+                  <UseRefTest />
+                </Route>
+                <Route path="*">
+                  <NoteFoundPage />
+                </Route>
+              </Switch>
+            </MainContent>
+          </ScrollToTop>
+        </AuthProvider>
         <MyFooter />
       </>
     </Router>

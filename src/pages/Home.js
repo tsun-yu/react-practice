@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { AuthContext } from "../component/AuthProvider";
 
 function Home(props) {
-  console.log(props);
+  const isAuth = useContext(AuthContext);
   return (
     <>
       <h1>HOME</h1>
-      <h2>登入狀態：{props.isAuth ? "已登入" : "未登入"}</h2>
+      <h2>登入狀態：{isAuth ? "已登入" : "未登入"}</h2>
+      {/* <h2>登入狀態：{props.isAuth ? "已登入" : "未登入"}</h2> */}
       <Link to="/counter">Counter</Link>
       <br />
       <Link to="/calender">Calender</Link>
